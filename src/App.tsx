@@ -54,7 +54,9 @@ export default function SipAndDance() {
       const response = await fetch("https://formspree.io/f/xjgedvwp", {
         method: "POST",
         body: formData,
-        headers: { Accept: "application/json" },
+        headers: {
+          Accept: "application/json",
+        },
       });
 
       if (response.ok) {
@@ -62,7 +64,7 @@ export default function SipAndDance() {
       } else {
         alert("Form submission failed. Please try again.");
       }
-    } catch {
+    } catch (error) {
       alert("There was an error submitting the form. Please try again.");
     }
   };
@@ -136,7 +138,6 @@ export default function SipAndDance() {
           <input type="hidden" name="Liability Waiver Accepted" value={agreeLiability ? "Yes" : "No"} />
           <input type="hidden" name="Alcohol Waiver Accepted" value={agreeAlcohol ? "Yes" : "No"} />
 
-          {/* LIABILITY WAIVER BOX */}
           <div style={{
             background: "#fff0f6",
             padding: "15px",
@@ -148,13 +149,16 @@ export default function SipAndDance() {
           }}>
             <strong>LIABILITY WAIVER & ASSUMPTION OF RISK (REQUIRED)</strong>
             <p>
-              I acknowledge that participation in dance classes and events involves inherent risks including slips, falls, muscle strain, and physical injury.
+              I acknowledge that participation in dance classes, rehearsals, workshops, intensives, performances, and heels classes by STUNNA STUDIOS BY SAANA involves inherent risks including, but not limited to, slips, falls, joint injury, muscle strain, overexertion, balance challenges, elevated footwear, and physical impact.
             </p>
             <p>
-              I voluntarily assume all risks and certify that I am physically able to participate.
+              I voluntarily assume all risks, known and unknown, and certify that I am physically able to participate. I understand it is my responsibility to consult a physician prior to participation if I have any medical concerns. I agree to immediately stop participating if I experience pain, dizziness, discomfort, or any unusual physical symptoms.
             </p>
             <p>
-              I release and hold harmless STUNNA STUDIOS BY SAANA from any claims arising out of my participation.
+              I hereby release, waive, discharge, and hold harmless STUNNA STUDIOS BY SAANA, its owner, instructors, staff, contractors, affiliates, and facility providers from any and all claims, demands, causes of action, damages, losses, or liabilities arising out of or related to my participation, including those caused by negligence, to the fullest extent permitted by law.
+            </p>
+            <p>
+              I understand that the studio is not responsible for lost, stolen, or damaged personal property.
             </p>
           </div>
 
@@ -166,7 +170,6 @@ export default function SipAndDance() {
             /> I agree to the Liability Waiver.
           </label>
 
-          {/* ALCOHOL WAIVER BOX */}
           {age !== null && age >= 21 && (
             <>
               <div style={{
@@ -180,10 +183,13 @@ export default function SipAndDance() {
               }}>
                 <strong>ALCOHOL WAIVER (21+ REQUIRED)</strong>
                 <p>
-                  I confirm I am 21+ and accept full responsibility for alcohol consumption.
+                  I confirm that I am 21 years of age or older and legally permitted to consume alcohol. If I choose to consume alcohol before, during, or after this event, I do so voluntarily and at my own risk.
                 </p>
                 <p>
-                  I am responsible for my behavior and any damages caused.
+                  I accept full responsibility for my behavior at all times. Any disorderly conduct, unsafe actions, intoxication-related incidents, injury to myself or others, or damage to property caused by me is solely my responsibility.
+                </p>
+                <p>
+                  I agree to reimburse and indemnify STUNNA STUDIOS BY SAANA for any and all damages to the studio, venue, equipment, furnishings, or third-party property resulting from my actions. I understand that failure to act responsibly may result in immediate removal from the event without refund.
                 </p>
               </div>
 
